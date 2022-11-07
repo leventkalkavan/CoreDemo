@@ -5,9 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfCategoryRepository : GenericRepository<Category>, ICategoryDal
+   public class EfNewsLetterRepository : GenericRepository<NewsLetter>,INewsLetterDal
     {
     }
 }
