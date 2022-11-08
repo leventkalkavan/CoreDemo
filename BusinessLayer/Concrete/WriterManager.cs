@@ -19,12 +19,12 @@ namespace BusinessLayer.Concrete
 
         public Writer GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _writerDal.GetByID(id);
         }
 
         public List<Writer> GetList()
         {
-            throw new NotImplementedException();
+            return _writerDal.GetListAll();
         }
 
         public void WriterAdd(Writer writer)
@@ -34,12 +34,12 @@ namespace BusinessLayer.Concrete
 
         public void WriterDelete(Writer writer)
         {
-            throw new NotImplementedException();
+            _writerDal.Delete(writer);
         }
 
         public void WriterUpdate(Writer writer)
         {
-            throw new NotImplementedException();
+            _writerDal.Update(writer);
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IAboutDal
+    public interface IAboutDal : IGenericDal<About>
     {
     }
 }
