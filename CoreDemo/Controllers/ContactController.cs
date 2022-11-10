@@ -23,7 +23,7 @@ namespace CoreDemo.Controllers
         {
             contact.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             contact.ContactStatus = true;
-            cm.ContactAdd(contact);
+            cm.TAdd(contact);
             return RedirectToAction("Index","Blog");
         }
     }

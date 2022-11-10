@@ -21,7 +21,7 @@ namespace CoreDemo.Controllers
         public PartialViewResult SubscribeMail(NewsLetter newsLetter)
         {
             newsLetter.MailStatus = true;
-            nm.NewsLetterAdd(newsLetter);
+            nm.TAdd(newsLetter);
             return PartialView();
         }
     }

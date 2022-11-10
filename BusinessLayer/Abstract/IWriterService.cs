@@ -5,11 +5,8 @@ using System.Text;
 
 namespace BusinessLayer.Abstract
 {
-  public interface IWriterService
-    {
-        void WriterAdd(Writer writer);
-        void WriterDelete(Writer writer);
-        void WriterUpdate(Writer writer);
+  public interface IWriterService: IGenericService<Writer>
+    {       
         List<Writer> GetList();
         Writer GetByID(int id);
     }

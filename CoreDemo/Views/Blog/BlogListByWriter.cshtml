@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+@{string color = "";}
+@{string status = "";}
+<h1>Yazarın Blogları</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Blog başlığı</th>
+        <th>Oluşturma Tarihi</th>
+        <th>Kategori</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.BlogStatus == true)
+        {
+            color = "badge badge-success";
+        }
+        else
+        {
+            color = "badge badge-danger";
+        }
+        switch (item.BlogStatus)
+        {
+            case true: status = "Aktif";
+                break;
+            case false: status = "Pasif";
+                break;
+        }
+<tr>
+    <td>@item.BlogID</td>
+    <td>@item.BlogTitle</td>
+    <td>@item.BlogDate.ToShortDateString().ToString()</td>
+    <td>@item.CategoryID</td>
+    <td class="@color">@status</td>
+    <td><a href="#" class="btn btn-danger">Sil</a></td>
+    <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+</tr>
+    }
+</table>
+<br />
+<a href="#" class="btn btn-info">Yeni Blog Oluştur</a>
+
