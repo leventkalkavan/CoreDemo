@@ -7,7 +7,7 @@
 @{string color = "";}
 @{string status = "";}
 <h1>Yazarın Blogları</h1>
-<table class="table table-bordered">
+<table style="text-align:center" class="table table-bordered">
     <tr>
         <th>#</th>
         <th>Blog başlığı</th>
@@ -17,34 +17,41 @@
         <th>Sil</th>
         <th>Düzenle</th>
     </tr>
-    @foreach (var item in Model)
-    {
-        if (item.BlogStatus == true)
+
+    @{
+        var i = 1;
+        foreach (var item in Model)
         {
-            color = "badge badge-success";
+            if (item.BlogStatus == true)
+            {
+                color = "badge badge-success";
+            }
+            else
+            {
+                color = "badge badge-danger";
+            }
+            switch (item.BlogStatus)
+            {
+                case true:
+                    status = "Aktif";
+                    break;
+                case false:
+                    status = "Pasif";
+                    break;
+            }
+        <tr>
+            <td>@i</td>
+            <td>@item.BlogTitle</td>
+            <td>@item.BlogDate.ToShortDateString().ToString()</td>
+            <td>@item.Category.CategoryName</td>
+            <td class="@color">@status</td>
+            <td><a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Blog/UpdateBlog/@item.BlogID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+            i++;
         }
-        else
-        {
-            color = "badge badge-danger";
         }
-        switch (item.BlogStatus)
-        {
-            case true: status = "Aktif";
-                break;
-            case false: status = "Pasif";
-                break;
-        }
-<tr>
-    <td>@item.BlogID</td>
-    <td>@item.BlogTitle</td>
-    <td>@item.BlogDate.ToShortDateString().ToString()</td>
-    <td>@item.CategoryID</td>
-    <td class="@color">@status</td>
-    <td><a href="#" class="btn btn-danger">Sil</a></td>
-    <td><a href="#" class="btn btn-warning">Güncelle</a></td>
-</tr>
-    }
 </table>
 <br />
-<a href="#" class="btn btn-info">Yeni Blog Oluştur</a>
+<a href="/Blog/BlogAdd" class="btn btn-info">Yeni Blog Oluştur</a>
 
