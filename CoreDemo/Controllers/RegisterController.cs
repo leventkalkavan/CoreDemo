@@ -13,8 +13,7 @@ namespace CoreDemo.Controllers
 {
     public class RegisterController : Controller
     {
-        WriterManager wm = new WriterManager(new EfWriterRepository());
-
+        WriterManager wm = new WriterManager(new EfWriterRepository());      
     [HttpGet]
         public IActionResult Index()
         {
